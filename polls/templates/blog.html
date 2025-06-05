@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block content %}
+<h1>Blog list:</h1>
+    <ul>
+        {% for blogs in blog %}
+            <li style="margin-bottom:20px">
+                {{ blogs.blogTitle }}
+                {{ blogs.blogText }}
+            </li>
+            {% endfor %}
+    </ul>
+    {% endblock %}
+
