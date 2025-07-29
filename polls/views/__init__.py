@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 from django.shortcuts import render, HttpResponse
-from .models import TodoItem, BlogItem, Note
-from .serializers import NoteSerializer
+from polls.models import TodoItem, BlogItem, Note
+from polls.serializers import NoteSerializer
 
 
 def index(request):

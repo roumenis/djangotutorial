@@ -15,4 +15,6 @@ class Note(models.Model):
     text = models.TextField()
     pinned = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
-    background_color = models.CharField(max_length=30, blank=True)
+    background_color = models.CharField(max_length=35, blank=True)
+    image = models.CharField(max_length=255, blank=True, null=True)
+    category = models.CharField(max_length=1, choices=[('A', 'A'), ('B', 'B')], default='A') 

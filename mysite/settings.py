@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "rest_framework",
+    'rest_framework_simplejwt',
     'polls'
 ]
 
@@ -123,3 +125,20 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+REST_FRAMEWORK = {
+    # Výchozí autentizační třídy pro API
+    # JWTAuthentication: autentizace pomocí JSON Web Tokenu (token-based auth)
+    # SessionAuthentication: autentizace pomocí Django session (přihlášení přes web)
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+
+    # Výchozí oprávnění pro API
+    # IsAuthenticated: uživatel musí být přihlášený, aby mohl používat API!!!!
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    # Další nastavení lze přidat dle potřeby
+}
